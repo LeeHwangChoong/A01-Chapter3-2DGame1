@@ -28,8 +28,8 @@ public class GameManager : MonoBehaviour
             curSpawnDelay = 0;
         }
 
-        Player playerLogic = Player.GetComponent<Player>();
-        scoreText.text = playerLogic.score;
+        /*Player playerLogic = Player.GetComponent<Player>();
+        scoreText.text = playerLogic.score;*/
     }
 
     void SpawnEnemy()
