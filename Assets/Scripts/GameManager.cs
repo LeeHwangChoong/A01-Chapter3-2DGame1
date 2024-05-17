@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
         }
 
         Player playerLogic = Player.GetComponent<Player>();
-        scoreText.text = playerLogic.score
+        scoreText.text = playerLogic.score;
     }
 
     void SpawnEnemy()
