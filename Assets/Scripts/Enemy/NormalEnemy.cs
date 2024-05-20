@@ -20,7 +20,6 @@ public class NormalEnemy : MonoBehaviour
     void Update()
     {
         MoveEnemy(enemy);
-        
     }
 
     private void SpawnEnemy()
@@ -60,7 +59,6 @@ public class NormalEnemy : MonoBehaviour
             Debug.Log("Enemy Damage Detected");
             if (enemy.Hp > 0)
             {
-                Debug.Log("Reduce enemy Hp");
                 Debug.Log($"Origin Hp: {enemy.Hp}");
                 enemy.Hp -= 1;
                 Destroy(collision.gameObject);
@@ -76,7 +74,6 @@ public class NormalEnemy : MonoBehaviour
                 playerLogic.score += enemy.Score;
 
                 Destroy(normalEnemy, 2.0f);
-                Debug.Log("Destroy Enemy Obj");
             }
         }
     }
