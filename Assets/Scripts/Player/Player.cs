@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,7 @@ public class Player : MonoBehaviour
     public float power;
     public float maxShotDelay;
     public float curShotDelay;
+    public PlayerData player;
 
     public GameObject bulletA;
     public GameObject bulletB;
