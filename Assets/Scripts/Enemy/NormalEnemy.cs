@@ -70,8 +70,7 @@ public class NormalEnemy : MonoBehaviour
                 Debug.Log("Get Score");
 
                 //Get Score
-                Player playerLogic = player.GetComponent<Player>();
-                playerLogic.score += enemy.Score;
+                GameManager.instance.score += enemy.Score;
 
                 Destroy(normalEnemy, 2.0f);
             }

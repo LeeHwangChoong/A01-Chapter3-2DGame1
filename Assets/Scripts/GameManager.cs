@@ -1,11 +1,14 @@
+using System;
 using System.Collections;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance;
     public GameObject[] enemyObjs;
     public Transform[] spawnPoints;
     
@@ -13,6 +16,7 @@ public class GameManager : MonoBehaviour
     public float curSpawnDelay;
 
     public GameObject player;
+    public int score;
     
     //UI
     public Text scoreText;
@@ -20,6 +24,15 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverSet;
 
     public bool isLive;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            
+        }
+    }
 
     void Update()
     {
@@ -31,13 +44,14 @@ public class GameManager : MonoBehaviour
 
         if (curSpawnDelay > maxSpawnDelay)
         {
+            Debug.Log("Spawn");
             SpawnEnemy();
             maxSpawnDelay = Random.Range(0.5f, 3f);
             curSpawnDelay = 0;
         }
 
-        Player playerLogic = player.GetComponent<Player>();
-        scoreText.text = string.Format("{0:n0}", playerLogic.score);
+        //Player playerLogic = player.GetComponent<Player>();
+        scoreText.text = string.Format("{0:n0}", score);
     }
 
     //life Appear
