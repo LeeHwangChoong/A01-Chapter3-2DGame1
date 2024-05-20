@@ -5,11 +5,11 @@ public class ItemSpawn : MonoBehaviour
 {
     //아이템이 특정 시간대에 세가지중에 랜덤으로 하나 생성되게 하기    
 
-    public GameObject[] itemPrefabs;     
+    public GameObject[] itemPrefabs;
+    public GameObject player;    
 
     private void Start()
-    {
-        // 최초 아이템 생성 스타트
+    {           
         StartCoroutine(SpawnRandomItem());
     }
 
@@ -28,6 +28,12 @@ public class ItemSpawn : MonoBehaviour
             GameObject newItem = Instantiate(itemPrefabs[randomIndex], spawnPosition, Quaternion.identity, transform);
 
             ItemManager.Instance.RandomItem(newItem); //아이템 컨트롤러에 저장                        
+
+            ShieldItem shieldItem = newItem.GetComponent<ShieldItem>();
+            if (shieldItem != null && player != null)
+            {
+                shieldItem.shieldObject = player.transform.Find("MainSprite/ShieldImage").gameObject;
+            }
 
             Destroy(newItem, 10f); // 7초 후에 아이템 삭제
         }

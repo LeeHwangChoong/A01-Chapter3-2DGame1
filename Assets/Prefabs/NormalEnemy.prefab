@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3394372558664678500}
   m_Layer: 0
   m_Name: NormalEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   normalEnemy: {fileID: 1015105322025880377}
+  enemyBullet: {fileID: 3766691973252185443, guid: e3cbf96ac69697245b485d0ac801a537, type: 3}
 --- !u!61 &3394372558664678500
 BoxCollider2D:
   m_ObjectHideFlags: 0
