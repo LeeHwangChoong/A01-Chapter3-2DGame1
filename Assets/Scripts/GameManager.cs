@@ -19,8 +19,14 @@ public class GameManager : MonoBehaviour
     public Image[] lifeImage;
     public GameObject gameOverSet;
 
+    public bool isLive;
+
     void Update()
     {
+        if (!isLive)
+        {
+            return;
+        }
         curSpawnDelay += Time.deltaTime;
 
         if (curSpawnDelay > maxSpawnDelay)
@@ -52,7 +58,7 @@ public class GameManager : MonoBehaviour
     
     void SpawnEnemy()
     {
-        int ranEnemy = Random.Range(0, 3);
+        int ranEnemy = Random.Range(0, enemyObjs.Length);
         int ranPoint = Random.Range(0, 5);
         Instantiate(enemyObjs[ranEnemy],
             spawnPoints[ranPoint].position,
@@ -67,5 +73,17 @@ public class GameManager : MonoBehaviour
     public void GameRetry()
     {
         SceneManager.LoadScene(0);
+    }
+
+    public void Stop()
+    {
+        isLive = false;
+        Time.timeScale = 0;
+    }
+    
+    public void Resume()
+    {
+        isLive = true;
+        Time.timeScale = 1;
     }
 }
