@@ -1,13 +1,17 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class NormalEnemy : MonoBehaviour
 {
     public GameObject normalEnemy;
-    public EnemyData enemy = new(1, 0.01f);
+    public GameObject enemyBullet;
+    public Text showScoreText;
+
+    public EnemyData enemy = new(1, 0.01f, 1);
     
-    public GameObject player;
-    public int enemyScore;
+    //public GameObject player;
+    private int nowScore = 0;
 
     void Start()
     {
@@ -23,7 +27,8 @@ public class NormalEnemy : MonoBehaviour
     {
         Debug.Log("SpawnEnemy");
 
-        float x = Random.Range(-2.5f, 2.5f);
+        //float x = Random.Range(-2.5f, 2.5f);
+        float x = 0.0f;
         float y = 5.0f;
         transform.position = new Vector3(x, y);
     }
@@ -43,25 +48,36 @@ public class NormalEnemy : MonoBehaviour
 
     private void Attack()
     {
-
+        float x = transform.position.x;
+        float y = transform.position.y + 2.0f;
+        Instantiate(enemyBullet, new Vector2(x, y), Quaternion.identity);
     }
-
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Bullet"))
+        if (collision.gameObject.CompareTag("Player"))
         {
+            Debug.Log("Enemy Damage Detected");
             if (enemy.Hp > 0)
             {
+                Debug.Log("Reduce enemy Hp");
+                Debug.Log($"Origin Hp: {enemy.Hp}");
                 enemy.Hp -= 1;
                 Destroy(collision.gameObject);
+                Debug.Log($"Now Hp: {enemy.Hp}");
             }
-            else if (enemy.Hp == 0)
+
+            if (enemy.Hp == 0)
             {
+                Debug.Log("Get Score");
+
                 //Get Score
-                Player playerLogic = player.GetComponent<Player>();
-                playerLogic.score += enemyScore;
-                Destroy(normalEnemy, 3.0f);
+                // Player playerLogic = player.GetComponent<Player>();
+                //playerLogic.score += enemy.Score;
+                nowScore += enemy.Score;
+                showScoreText.text = nowScore.ToString("F2");
+                Destroy(normalEnemy, 2.0f);
+                Debug.Log("Destroy Enemy Obj");
             }
         }
     }
