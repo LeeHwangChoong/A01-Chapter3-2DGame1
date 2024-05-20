@@ -6,17 +6,15 @@ public class NormalEnemy : MonoBehaviour
 {
     public GameObject normalEnemy;
     public GameObject enemyBullet;
-    public Text showScoreText;
 
     public EnemyData enemy = new(1, 0.01f, 1);
     
-    //public GameObject player;
-    private int nowScore = 0;
+    public GameObject player;
 
     void Start()
     {
         SpawnEnemy();
-        InvokeRepeating("Attack", 0.1f, 0.5f);
+        InvokeRepeating("Attack", 0.1f, 2.0f);
     }
 
     void Update()
@@ -30,7 +28,6 @@ public class NormalEnemy : MonoBehaviour
         Debug.Log("Spawn Enemy");
 
         float x = Random.Range(-2.5f, 2.5f);
-        //float x = 0.0f;
         float y = 5.0f;
         transform.position = new Vector3(x, y);
     }
@@ -40,7 +37,7 @@ public class NormalEnemy : MonoBehaviour
         if (enemy.Hp > 0)
         {
             transform.position += Vector3.down * enemy.Speed;
-            if (transform.position.y < -5.0f)
+            if (transform.position.y < -4.0f)
             {
                 Debug.Log("Enemy Move");
                 Destroy(normalEnemy, 3.0f);
@@ -53,10 +50,7 @@ public class NormalEnemy : MonoBehaviour
         Debug.Log("Enemy Attacks");
         float x = transform.position.x;
         float y = transform.position.y;
-        Instantiate(enemyBullet, new Vector2(x, y), Quaternion.identity);
-        Instantiate(enemyBullet, new Vector2(x, y), Quaternion.identity);
-        Instantiate(enemyBullet, new Vector2(x, y), Quaternion.identity);
-
+        Instantiate(enemyBullet, new Vector2(x, y), Quaternion.identity, transform);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -78,10 +72,9 @@ public class NormalEnemy : MonoBehaviour
                 Debug.Log("Get Score");
 
                 //Get Score
-                // Player playerLogic = player.GetComponent<Player>();
-                //playerLogic.score += enemy.Score;
-                nowScore += enemy.Score;
-                showScoreText.text = nowScore.ToString("F2");
+                Player playerLogic = player.GetComponent<Player>();
+                playerLogic.score += enemy.Score;
+
                 Destroy(normalEnemy, 2.0f);
                 Debug.Log("Destroy Enemy Obj");
             }

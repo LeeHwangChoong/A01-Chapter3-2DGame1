@@ -13,7 +13,13 @@ public class EnemyBullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += Vector3.down * 0.05f;
+        transform.position += Vector3.down * 0.03f;
+        /*
+        if (transform.position.x > 0)
+            transform.position += Vector3.left * 0.01f;
+        else
+            transform.position += Vector3.right * 0.01f;
+        */
         if (transform.position.y < -5.0f)
         {
             Destroy(gameObject);
