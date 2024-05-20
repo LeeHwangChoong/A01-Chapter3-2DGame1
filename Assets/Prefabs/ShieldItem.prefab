@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2949726077762176967}
   - component: {fileID: 773207496822380281}
   - component: {fileID: 1850326207117680454}
-  - component: {fileID: -5333431369987038448}
+  - component: {fileID: 5441046507058304409}
   m_Layer: 0
   m_Name: ShieldItem
   m_TagString: ShieldItem
@@ -158,7 +158,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.2999196, y: 0.28719953}
+  m_Size: {x: 0.2999196, y: 0.2871994}
   m_EdgeRadius: 0
 --- !u!95 &1850326207117680454
 Animator:
@@ -181,7 +181,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &-5333431369987038448
+--- !u!114 &5441046507058304409
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -193,3 +193,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6481862c667e634b8277149fd522a13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shieldObject: {fileID: 0}
