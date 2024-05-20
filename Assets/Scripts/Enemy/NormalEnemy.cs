@@ -1,14 +1,20 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class NormalEnemy : MonoBehaviour
 {
     public GameObject normalEnemy;
-    public EnemyData enemy = new(1, 0.01f);
+    public GameObject enemyBullet;
+
+    public EnemyData enemy = new(1, 0.01f, 1);
+    
+    public GameObject player;
 
     void Start()
     {
         SpawnEnemy();
+        InvokeRepeating("Attack", 0.1f, 2.0f);
     }
 
     void Update()
@@ -16,11 +22,9 @@ public class NormalEnemy : MonoBehaviour
         MoveEnemy(enemy);
     }
 
-    // 일반 적 생성
-
     private void SpawnEnemy()
     {
-        Debug.Log("화면 상단에 적 랜덤 생성");
+        Debug.Log("Spawn Enemy");
 
         float x = Random.Range(-2.5f, 2.5f);
         float y = 5.0f;
@@ -29,14 +33,12 @@ public class NormalEnemy : MonoBehaviour
 
     private void MoveEnemy(EnemyData enemy)
     {
-        // 살아있는 적 기본 이동(하강)
-
         if (enemy.Hp > 0)
         {
             transform.position += Vector3.down * enemy.Speed;
-            if (transform.position.y < -5.0f)
+            if (transform.position.y < -4.0f)
             {
-                Debug.Log("화면 최하단에 도달한 적 오브젝트를 파괴합니다.");
+                Debug.Log("Enemy Move");
                 Destroy(normalEnemy, 3.0f);
             }
         }
@@ -44,33 +46,35 @@ public class NormalEnemy : MonoBehaviour
 
     private void Attack()
     {
-        // 총알 생성 함수 호출하기
+        Debug.Log("Enemy Attacks");
+        float x = transform.position.x;
+        float y = transform.position.y;
+        Instantiate(enemyBullet, new Vector2(x, y), Quaternion.identity, transform);
     }
-
-    //이하 충돌 감지
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Bullet"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-            // 살아 있을 때 player의 bullet에 맞으면
-            // Hp가 줄고 player의 bullet을 파괴한다
-
+            Debug.Log("Enemy Damage Detected");
             if (enemy.Hp > 0)
             {
+                Debug.Log($"Origin Hp: {enemy.Hp}");
                 enemy.Hp -= 1;
                 Destroy(collision.gameObject);
+                Debug.Log($"Now Hp: {enemy.Hp}");
             }
-            else if (enemy.Hp == 0)
+
+            if (enemy.Hp == 0)
             {
-                Destroy(normalEnemy, 3.0f);
-                //GameManager.Instance.AddScore();
+                Debug.Log("Get Score");
+
+                //Get Score
+                Player playerLogic = player.GetComponent<Player>();
+                playerLogic.score += enemy.Score;
+
+                Destroy(normalEnemy, 2.0f);
             }
-
-            // TODO: 플레이어와 충돌 시에도 피해 줌
-
-            // TODO: (HP가 1 이상인 적만) HP가 1 남았을때 붉은 색조 입히기
-
         }
     }
 }

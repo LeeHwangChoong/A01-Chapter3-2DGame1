@@ -9,6 +9,12 @@ public class Player : MonoBehaviour
     public bool isTouchBottom;
     public bool isTouchLeft;
     public bool isTouchRight;
+    
+    public int life;
+    public int score;
+
+    public GameManager manager;
+    
 
     Animator anim;
 
@@ -20,7 +26,6 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //키보드  x값 y값 받기
         float x = Input.GetAxisRaw("Horizontal");
         if((isTouchRight && x == 1) || (isTouchLeft && x == -1))
         {
@@ -41,8 +46,7 @@ public class Player : MonoBehaviour
             anim.SetInteger("Input", (int)x);
         }
     }
-
-    // Player가 화면 너머 Box 콜라이더에 충돌시 막음
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Border")
