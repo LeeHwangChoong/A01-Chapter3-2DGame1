@@ -669,7 +669,7 @@ GameObject:
   - component: {fileID: 2906943155820622476}
   - component: {fileID: 7124211864118307890}
   m_Layer: 0
-  m_Name: EnemyBullet
+  m_Name: PlayerBullet
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -822,6 +822,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   normalEnemy: {fileID: 5581559567447524052}
+  enemyBullet: {fileID: 1800535571934471811, guid: e3cbf96ac69697245b485d0ac801a537, type: 3}
   showScoreText: {fileID: 103870035}
 --- !u!212 &8636508458216796530
 SpriteRenderer:

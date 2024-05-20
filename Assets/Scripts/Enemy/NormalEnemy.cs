@@ -16,19 +16,21 @@ public class NormalEnemy : MonoBehaviour
     void Start()
     {
         SpawnEnemy();
+        InvokeRepeating("Attack", 0.1f, 0.5f);
     }
 
     void Update()
     {
         MoveEnemy(enemy);
+        
     }
 
     private void SpawnEnemy()
     {
-        Debug.Log("SpawnEnemy");
+        Debug.Log("Spawn Enemy");
 
-        //float x = Random.Range(-2.5f, 2.5f);
-        float x = 0.0f;
+        float x = Random.Range(-2.5f, 2.5f);
+        //float x = 0.0f;
         float y = 5.0f;
         transform.position = new Vector3(x, y);
     }
@@ -40,7 +42,7 @@ public class NormalEnemy : MonoBehaviour
             transform.position += Vector3.down * enemy.Speed;
             if (transform.position.y < -5.0f)
             {
-                Debug.Log("EnemyMove");
+                Debug.Log("Enemy Move");
                 Destroy(normalEnemy, 3.0f);
             }
         }
@@ -48,9 +50,13 @@ public class NormalEnemy : MonoBehaviour
 
     private void Attack()
     {
+        Debug.Log("Enemy Attacks");
         float x = transform.position.x;
-        float y = transform.position.y + 2.0f;
+        float y = transform.position.y;
         Instantiate(enemyBullet, new Vector2(x, y), Quaternion.identity);
+        Instantiate(enemyBullet, new Vector2(x, y), Quaternion.identity);
+        Instantiate(enemyBullet, new Vector2(x, y), Quaternion.identity);
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
