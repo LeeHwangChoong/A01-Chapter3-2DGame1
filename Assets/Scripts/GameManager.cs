@@ -28,18 +28,14 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         if (instance == null)
-        {
             instance = this;
-            
-        }
     }
 
     void Update()
     {
         if (!isLive)
-        {
             return;
-        }
+        
         curSpawnDelay += Time.deltaTime;
 
         if (curSpawnDelay > maxSpawnDelay)
@@ -72,6 +68,7 @@ public class GameManager : MonoBehaviour
     
     void SpawnEnemy()
     {
+        Debug.Log("SpawnEnemy");
         int ranEnemy = Random.Range(0, enemyObjs.Length);
         int ranPoint = Random.Range(0, 5);
         Instantiate(enemyObjs[ranEnemy],
@@ -95,9 +92,18 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
     }
     
-    public void Resume()
+    public void Resume(int state)
     {
-        isLive = true;
-        Time.timeScale = 1;
+        if (state == 1)
+        {
+            isLive = false;
+            Time.timeScale = 0;
+        }
+        else if (state == 0)
+        {
+            isLive = true;
+            Time.timeScale = 1;
+        }
     }
+    
 }

@@ -17,6 +17,8 @@ public class ItemMove : MonoBehaviour
     private void Update()
     {
         // 아이템 이동
+        if (!GameManager.instance.isLive)
+            return;
         transform.Translate(moveDirection * itemSpeed * Time.deltaTime, Space.World);
 
         CheckScreenBoundary();
