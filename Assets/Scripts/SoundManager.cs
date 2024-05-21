@@ -4,9 +4,11 @@ public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance { get; private set; }
 
-    private AudioSource audioSource;
+    private AudioSource bgmAudioSource;
+    private AudioSource itemAudioSource;
 
-    public float volume = 1f;
+    public float bgmVolume = 1f;
+    public float itemVolume = 1f;
     public AudioClip backgroundMusicClip;
 
     private void Awake()
@@ -15,8 +17,15 @@ public class SoundManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            audioSource = gameObject.AddComponent<AudioSource>();
-            audioSource.volume = volume;
+
+            // 배경음악용 오디오 소스 추가
+            bgmAudioSource = gameObject.AddComponent<AudioSource>();
+            bgmAudioSource.loop = true;
+            bgmAudioSource.volume = bgmVolume;
+
+            // 효과음용 오디오 소스 추가
+            itemAudioSource = gameObject.AddComponent<AudioSource>();
+            itemAudioSource.volume = itemVolume;
         }
         else
         {
@@ -24,10 +33,16 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    public void SetVolume(float newVolume)
+    public void SetBGMVolume(float newVolume)
     {
-        volume = Mathf.Clamp(newVolume, 0f, 1f); // 볼륨 값 제한
-        audioSource.volume = volume; // 오디오 소스 볼륨 업데이트
+        bgmVolume = Mathf.Clamp(newVolume, 0f, 1f);
+        bgmAudioSource.volume = bgmVolume;
+    }
+
+    public void SetItemVolume(float newVolume)
+    {
+        itemVolume = Mathf.Clamp(newVolume, 0f, 1f);
+        itemAudioSource.volume = itemVolume;
     }
 
     private void Start()
@@ -39,8 +54,8 @@ public class SoundManager : MonoBehaviour
     {
         if (backgroundMusicClip != null)
         {
-            audioSource.clip = backgroundMusicClip;
-            audioSource.Play();
+            bgmAudioSource.clip = backgroundMusicClip;
+            bgmAudioSource.Play();
         }
     }
 
@@ -48,7 +63,7 @@ public class SoundManager : MonoBehaviour
     {
         if (itemSoundClip != null)
         {
-            audioSource.PlayOneShot(itemSoundClip);
+            itemAudioSource.PlayOneShot(itemSoundClip);
         }
     }
 }

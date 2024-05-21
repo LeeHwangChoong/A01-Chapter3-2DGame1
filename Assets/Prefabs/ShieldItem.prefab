@@ -194,5 +194,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemSoundClip: {fileID: 8300000, guid: 9571b029d3fdf2449b438c3bd642fb4e, type: 3}
-  itemVolume: 0.03
+  itemVolume: 0.04
   shieldObject: {fileID: 0}
