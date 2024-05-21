@@ -48,7 +48,7 @@ public class NormalEnemy : MonoBehaviour
         if (collision.gameObject.CompareTag("PlayerBullet"))
         {
             if (enemy.Hp > 0)
-            {
+            {                
                 enemy.Hp -= 1;
                 Destroy(collision.gameObject);
             }
@@ -56,7 +56,7 @@ public class NormalEnemy : MonoBehaviour
             if (enemy.Hp == 0)
             {
                 //Debug.Log("Get Score");
-
+                
                 Destroy(normalEnemy, 0.5f);
                 GameManager.instance.score += enemy.Score;
 

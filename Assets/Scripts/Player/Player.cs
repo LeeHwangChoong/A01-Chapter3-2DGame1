@@ -29,8 +29,8 @@ public class Player : MonoBehaviour
     }
 
     private void Fire()
-    {
-        if(curShotDelay < maxShotDelay)
+    {        
+        if (curShotDelay < maxShotDelay)
         {
             return;
         }
@@ -44,6 +44,7 @@ public class Player : MonoBehaviour
                 GameObject bullet = Instantiate(bulletA, transform.position + Vector3.up * 0.5f, transform.rotation);
                 Rigidbody2D rigidbody = bullet.GetComponent<Rigidbody2D>();
                 rigidbody.AddForce(Vector2.up * 2, ForceMode2D.Impulse);
+                SoundManager.Instance.PlayerAttackSound(); //공격 사운드 추가
                 break;
             case 1:
                 if(power == 1)
@@ -53,6 +54,7 @@ public class Player : MonoBehaviour
                 GameObject bullet1 = Instantiate(bulletB, transform.position + Vector3.up * 0.5f, transform.rotation);
                 Rigidbody2D rigidbody1 = bullet1.GetComponent<Rigidbody2D>();
                 rigidbody1.AddForce(Vector2.up * 2, ForceMode2D.Impulse);
+                SoundManager.Instance.PlayerAttackSound(); //공격 사운드 추가
                 break;
             case 2:
                 if(power == 2)
@@ -62,6 +64,7 @@ public class Player : MonoBehaviour
                 GameObject bullet2 = Instantiate(bulletC, transform.position + Vector3.up * 0.5f, transform.rotation);
                 Rigidbody2D rigidbody2 = bullet2.GetComponent<Rigidbody2D>();
                 rigidbody2.AddForce(Vector2.up * 2, ForceMode2D.Impulse);
+                SoundManager.Instance.PlayerAttackSound(); //공격 사운드 추가
                 break;
             case 3:
                 if(power == 3)
@@ -71,6 +74,7 @@ public class Player : MonoBehaviour
                 GameObject bullet3 = Instantiate(bulletD, transform.position + Vector3.up * 0.5f, transform.rotation);
                 Rigidbody2D rigidbody3 = bullet3.GetComponent<Rigidbody2D>();
                 rigidbody3.AddForce(Vector2.up * 2, ForceMode2D.Impulse);
+                SoundManager.Instance.PlayerAttackSound(); //공격 사운드 추가
                 break;
         }
         curShotDelay = 0;
@@ -88,6 +92,7 @@ public class Player : MonoBehaviour
             if (!shieldImage.activeSelf) //추가
             {
                 // 적의 공격을 받음
+                SoundManager.Instance.PlayerDeadSound(); //파괴 사운드 추가
                 life--;
                 manager.UpdateLife(life);
                 if (life == 0)

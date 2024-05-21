@@ -6,10 +6,17 @@ public class SoundManager : MonoBehaviour
 
     private AudioSource bgmAudioSource;
     private AudioSource itemAudioSource;
+    private AudioSource playerAttackAudioSource;   
+    private AudioSource playerDeadAudioSource;
 
     public float bgmVolume = 1f;
     public float itemVolume = 1f;
+    public float playerAttackVolume = 1f;
+    public float playerDeadVolume = 1f;
+
     public AudioClip backgroundMusicClip;
+    public AudioClip playerAttackSoundClip; 
+    public AudioClip playerDeadSoundClip;
 
     private void Awake()
     {
@@ -23,9 +30,17 @@ public class SoundManager : MonoBehaviour
             bgmAudioSource.loop = true;
             bgmAudioSource.volume = bgmVolume;
 
-            // 효과음용 오디오 소스 추가
+            // 아이템용 오디오 소스 추가
             itemAudioSource = gameObject.AddComponent<AudioSource>();
             itemAudioSource.volume = itemVolume;
+
+            // 플레이어 공격용 오디오 소스 추가
+            playerAttackAudioSource = gameObject.AddComponent<AudioSource>();
+            playerAttackAudioSource.volume = playerAttackVolume;
+
+            // 플레이어 사망용 오디오 소스 추가
+            playerDeadAudioSource = gameObject.AddComponent<AudioSource>();
+            playerDeadAudioSource.volume = playerDeadVolume;
         }
         else
         {
@@ -66,4 +81,21 @@ public class SoundManager : MonoBehaviour
             itemAudioSource.PlayOneShot(itemSoundClip);
         }
     }
+
+    public void PlayerAttackSound()
+    {
+        if (playerAttackSoundClip != null)
+        {
+            playerAttackAudioSource.PlayOneShot(playerAttackSoundClip);
+        }
+    }
+
+    public void PlayerDeadSound()
+    {
+        if (playerAttackSoundClip != null)
+        {
+            playerDeadAudioSource.PlayOneShot(playerDeadSoundClip);
+        }
+    }
+
 }

@@ -47,7 +47,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bgmVolume: 0.05
   itemVolume: 0.04
+  playerAttackVolume: 0.02
+  playerDeadVolume: 0.03
   backgroundMusicClip: {fileID: 8300000, guid: 664bf4366f9e1ac46ab5234b80fba0d3, type: 3}
+  playerAttackSoundClip: {fileID: 8300000, guid: 6ddc4f740d0d688428ce727100d1d49c, type: 3}
+  playerDeadSoundClip: {fileID: 8300000, guid: f55fa8f6dd1b4e6438fcdc687027a183, type: 3}
 --- !u!82 &6738315030804170453
 AudioSource:
   m_ObjectHideFlags: 0

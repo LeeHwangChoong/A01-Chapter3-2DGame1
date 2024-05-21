@@ -773,14 +773,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundManager
       objectReference: {fileID: 0}
-    - target: {fileID: 4819893694934559071, guid: 16334aeee37bbc54da506a7a3d8306fa, type: 3}
-      propertyPath: bgmVolume
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 4819893694934559071, guid: 16334aeee37bbc54da506a7a3d8306fa, type: 3}
-      propertyPath: itemVolume
-      value: 0.04
-      objectReference: {fileID: 0}
     - target: {fileID: 6888339713425137007, guid: 16334aeee37bbc54da506a7a3d8306fa, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.6541069
