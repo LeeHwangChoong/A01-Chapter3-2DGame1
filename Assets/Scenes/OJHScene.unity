@@ -3384,33 +3384,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3302622469731934684, guid: f1d0e28b965744fb9b3835e00648b33c, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5180442321844871902, guid: f1d0e28b965744fb9b3835e00648b33c, type: 3}
-      propertyPath: life
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 5180442321844871902, guid: f1d0e28b965744fb9b3835e00648b33c, type: 3}
       propertyPath: manager
       value: 
       objectReference: {fileID: 446897679}
-    - target: {fileID: 6419644102813252465, guid: f1d0e28b965744fb9b3835e00648b33c, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6844604132000388683, guid: f1d0e28b965744fb9b3835e00648b33c, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 9130802033823966097, guid: f1d0e28b965744fb9b3835e00648b33c, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 9171943473142096789, guid: f1d0e28b965744fb9b3835e00648b33c, type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
