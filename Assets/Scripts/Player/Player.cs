@@ -5,16 +5,19 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public int life = 3;
     public float speed;
     public float power;
     public float maxShotDelay;
     public float curShotDelay;
-    public PlayerData player;
 
     public GameObject bulletA;
     public GameObject bulletB;
     public GameObject bulletC;
     public GameObject bulletD;
+
+    public GameManager manager;
+    public GameObject enemyBullet;
 
     // Update is called once per frame
     void Update()
@@ -25,7 +28,6 @@ public class Player : MonoBehaviour
         Reload();
     }
 
-    // �Ѿ� ������ �߻�
     private void Fire()
     {
         if(curShotDelay < maxShotDelay)
@@ -77,5 +79,24 @@ public class Player : MonoBehaviour
     private void Reload()
     {
         curShotDelay += Time.deltaTime;
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Enemy")
+        {
+            life--;
+            manager.UpdateLife(life);
+            if(life == 0)
+            {
+                manager.GameOver();
+            }
+            else
+            {
+                manager.RespawnPlayer();
+            }
+            manager.RespawnPlayer();
+            gameObject.SetActive(false);
+        }
     }
 }

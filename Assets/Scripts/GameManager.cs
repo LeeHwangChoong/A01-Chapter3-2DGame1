@@ -55,17 +55,28 @@ public class GameManager : MonoBehaviour
     //life Appear
     public void UpdateLife(int life)
     {
+        Debug.Log(life);
         //Life Disable
-        for (int i = 0; i < life; i++)
+        for (int i = 0; i < lifeImage.Length; i++)
         {
-            lifeImage[i].color = new Color(1, 1, 1, 0);
+            if(i < life)
+            {
+                lifeImage[i].color = new Color(1, 1, 1, 1);
+                Debug.Log("on");
+            }
+            else
+            {
+                lifeImage[i].color = new Color(1, 1, 1, 0);
+                Debug.Log("off");
+            }
+            //lifeImage[i].color = new Color(1, 1, 1, 0);
         }
-        
+        /*
         //Life Active
         for (int i = 0; i < life; i++)
         {
             lifeImage[i].color = new Color(1, 1, 1, 1);
-        }
+        }*/
     }
     
     void SpawnEnemy()
@@ -77,6 +88,16 @@ public class GameManager : MonoBehaviour
             spawnPoints[ranPoint].position,
             spawnPoints[ranPoint].rotation,
             EnemySpawn);
+    }
+    //GameManager 수정한곳
+    public void RespawnPlayer()
+    {
+        Invoke("Exe", 2f);
+    }
+    private void Exe()
+    {
+        player.transform.position = Vector3.down * 3f;
+        player.SetActive(true);
     }
 
     public void GameOver()
