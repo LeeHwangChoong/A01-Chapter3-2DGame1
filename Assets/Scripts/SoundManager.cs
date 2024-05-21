@@ -7,6 +7,7 @@ public class SoundManager : MonoBehaviour
     private AudioSource audioSource;
 
     public float volume = 1f;
+    public AudioClip backgroundMusicClip;
 
     private void Awake()
     {
@@ -27,6 +28,20 @@ public class SoundManager : MonoBehaviour
     {
         volume = Mathf.Clamp(newVolume, 0f, 1f); // 볼륨 값 제한
         audioSource.volume = volume; // 오디오 소스 볼륨 업데이트
+    }
+
+    private void Start()
+    {
+        PlayBackgroundMusic(); 
+    }
+
+    public void PlayBackgroundMusic()
+    {
+        if (backgroundMusicClip != null)
+        {
+            audioSource.clip = backgroundMusicClip;
+            audioSource.Play();
+        }
     }
 
     public void ItemSound(AudioClip itemSoundClip)
