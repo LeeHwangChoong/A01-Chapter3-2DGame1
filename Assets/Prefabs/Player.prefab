@@ -106,7 +106,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -20
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 748ae7bbb7f710042861ed2a03dc3d6c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -179,6 +179,7 @@ GameObject:
   - component: {fileID: 2170161464545658645}
   - component: {fileID: 9171943473142096789}
   - component: {fileID: 1857286223618367288}
+  - component: {fileID: 6271606450005061893}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -215,10 +216,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  isTouchTop: 0
-  isTouchBottom: 0
-  isTouchLeft: 0
-  isTouchRight: 0
+  power: 0
+  maxShotDelay: 0.2
+  curShotDelay: 0
+  player: {fileID: 0}
+  bulletA: {fileID: 7313373345236402538, guid: a2212bc7940f6ed4aab3c9eb06e4d76e, type: 3}
+  bulletB: {fileID: 6969168261939222083, guid: 8b197424fcbb93c4c87404b0e6884486, type: 3}
+  bulletC: {fileID: 2634109294865751684, guid: 0dd3b7b109475184aab2444246ab01eb, type: 3}
+  bulletD: {fileID: 673865768217865083, guid: b2c5b4e28a4344444b4903b9b465ef76, type: 3}
 --- !u!61 &6419644102813252465
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -331,7 +336,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 420975982, guid: 736b60b6c67ca1e44a1802ea24c54b68, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -364,3 +369,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6271606450005061893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9130802033823966097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76d463bcb6cbd094e836d541820bbcd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  isTouchTop: 0
+  isTouchBottom: 0
+  isTouchLeft: 0
+  isTouchRight: 0
