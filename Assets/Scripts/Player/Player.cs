@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
 
     public GameManager manager;
     public GameObject enemyBullet;
-    public GameObject shieldImage;      
+    public GameObject shieldImage;  // 추가    
 
     // Update is called once per frame
     void Update()
@@ -85,9 +85,8 @@ public class Player : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
-        {          
-            // "ShieldImage" 오브젝트가 활성화 상태인지 확인
-            if (!shieldImage.activeSelf)
+        {      
+            if (!shieldImage.activeSelf) //추가
             {
                 // 적의 공격을 받음
                 life--;
