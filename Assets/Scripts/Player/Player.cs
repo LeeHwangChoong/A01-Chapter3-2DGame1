@@ -19,11 +19,13 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!GameManager.instance.isLive)
+            return;
         Fire();
         Reload();
     }
 
-    // ÃÑ¾Ë »ý¼ºÈÄ ¹ß»ç
+    // ï¿½Ñ¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½
     private void Fire()
     {
         if(curShotDelay < maxShotDelay)

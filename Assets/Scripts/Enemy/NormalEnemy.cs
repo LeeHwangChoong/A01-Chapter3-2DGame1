@@ -19,6 +19,8 @@ public class NormalEnemy : MonoBehaviour
 
     void Update()
     {
+        if (!GameManager.instance.isLive)
+            return;
         MoveEnemy(enemy);
     }
 
