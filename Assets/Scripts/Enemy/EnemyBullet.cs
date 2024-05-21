@@ -4,26 +4,38 @@ using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
 {
+    public int type = 1;
+    private Vector3 dir;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        if (transform.position.x > 0)
+            dir += Vector3.left;
+        else
+            dir += Vector3.right;
     }
 
     // Update is called once per frame
     void Update()
     {
+        EnemyBulletType(type);
+    }
+
+    private void EnemyBulletType(int type)
+    {
         transform.position += Vector3.down * 0.03f;
-        /*
-        if (transform.position.x > 0)
-            transform.position += Vector3.left * 0.01f;
-        else
-            transform.position += Vector3.right * 0.01f;
-        */
-        if (transform.position.y < -5.0f)
+
+        switch (type)
         {
-            //Debug.Log("Destroy Enemy Bullet");
-            Destroy(gameObject);
+            case 1:
+                break;
+            case 2:
+                transform.position += dir * 0.01f;
+                break;
         }
+
+        if (transform.position.y < -5.0f)
+            Destroy(gameObject);
     }
 }

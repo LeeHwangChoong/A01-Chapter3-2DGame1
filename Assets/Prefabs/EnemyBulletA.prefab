@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7844527758158955437}
   - component: {fileID: 461439620471578657}
   m_Layer: 0
-  m_Name: EnemyBullet
+  m_Name: EnemyBulletA
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -171,3 +171,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1cbca3a2a07f0c4488f7079ccd96a72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 1
