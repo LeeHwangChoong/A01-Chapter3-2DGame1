@@ -7,11 +7,12 @@ public class NormalEnemy : MonoBehaviour
     public GameObject normalEnemy;
     public GameObject enemyBullet;
 
-    public EnemyData enemy = new(1, 0.01f, 1);
+    public EnemyData enemy = new(1, 0.01f, 1, EnemyType.normal);
+
+    private bool IsTrigger;
 
     void Start()
     {
-        //SpawnEnemy();
         InvokeRepeating("Attack", 0.1f, 2.0f);
     }
 
@@ -21,15 +22,6 @@ public class NormalEnemy : MonoBehaviour
             return;
         MoveEnemy(enemy);
     }
-
-    //private void SpawnEnemy()
-    //{
-    //    Debug.Log("Spawn Enemy");
-
-    //    float x = Random.Range(-2.5f, 2.5f);
-    //    float y = 5.0f;
-    //    transform.position = new Vector3(x, y);
-    //}
 
     private void MoveEnemy(EnemyData enemy)
     {
@@ -46,7 +38,6 @@ public class NormalEnemy : MonoBehaviour
 
     private void Attack()
     {
-        //Debug.Log("Enemy Attacks");
         float x = transform.position.x;
         float y = transform.position.y;
         Instantiate(enemyBullet, new Vector2(x, y), Quaternion.identity, transform);
@@ -56,13 +47,10 @@ public class NormalEnemy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("PlayerBullet"))
         {
-            //Debug.Log("Enemy Damage Detected");
             if (enemy.Hp > 0)
             {
-                //Debug.Log($"Origin Hp: {enemy.Hp}");
                 enemy.Hp -= 1;
                 Destroy(collision.gameObject);
-                //Debug.Log($"Now Hp: {enemy.Hp}");
             }
 
             if (enemy.Hp == 0)
@@ -70,6 +58,7 @@ public class NormalEnemy : MonoBehaviour
                 //Debug.Log("Get Score");
 
                 Destroy(normalEnemy, 0.5f);
+                IsTrigger = true;
                 GameManager.instance.score += enemy.Score;
 
             }
