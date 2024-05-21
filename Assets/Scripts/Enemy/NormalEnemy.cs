@@ -7,7 +7,7 @@ public class NormalEnemy : MonoBehaviour
     public GameObject normalEnemy;
     public GameObject enemyBullet;
 
-    public EnemyData enemy = new(1, 0.01f, 1, EnemyType.normal);
+    private EnemyData enemy = new(1, 0.01f, 1, EnemyType.normal);
 
     //private bool IsTrigger;
 
@@ -30,7 +30,7 @@ public class NormalEnemy : MonoBehaviour
             transform.position += Vector3.down * enemy.Speed;
             if (transform.position.y < -4.0f)
             {
-                Debug.Log("Enemy Move");
+                //Debug.Log("Enemy Move");
                 Destroy(normalEnemy, 2.0f);
             }
         }

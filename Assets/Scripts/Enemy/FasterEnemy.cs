@@ -7,9 +7,10 @@ public class FasterEnemy : MonoBehaviour
 {
     public GameObject fasterEnemy;
     public GameObject enemyBullet;
-    private int enemyType = 1;
+    //public Transform EnemySpawn;
+    //public int enemyType = 1;
 
-    public EnemyData enemy = new EnemyData(1, 0.02f, 1, EnemyType.faster);
+    private EnemyData enemy = new EnemyData(2, 0.03f, 1, EnemyType.faster);
 
     //private bool IsTrigger;
 
@@ -33,7 +34,7 @@ public class FasterEnemy : MonoBehaviour
             transform.position += Vector3.down * enemy.Speed;
             if (transform.position.y < -4.0f)
             {
-                Debug.Log("Enemy Move");
+                //Debug.Log("Enemy Move");
                 Destroy(fasterEnemy, 2.0f);
             }
         }
