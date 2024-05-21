@@ -10,7 +10,7 @@ public class FasterEnemy : MonoBehaviour
     //public Transform EnemySpawn;
     //public int enemyType = 1;
 
-    private EnemyData enemy = new EnemyData(2, 0.03f, 1, EnemyType.faster);
+    private EnemyData enemy = new EnemyData(2, 0.005f, 1, EnemyType.faster);
 
     //private bool IsTrigger;
 
