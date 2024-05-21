@@ -8,6 +8,7 @@ public class NormalEnemy : MonoBehaviour
     public GameObject enemyBullet;
 
     private EnemyData enemy = new(1, 0.01f, 1, EnemyType.normal);
+    private bool isDead;
 
     //private bool IsTrigger;
 
@@ -40,13 +41,14 @@ public class NormalEnemy : MonoBehaviour
     {
         float x = transform.position.x;
         float y = transform.position.y;
-        Instantiate(enemyBullet, new Vector2(x, y), Quaternion.identity, transform);
+        Instantiate(enemyBullet, new Vector2(x, y), Quaternion.identity);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("PlayerBullet"))
+        if (collision.gameObject.CompareTag("PlayerBullet") && !isDead)
         {
+
             if (enemy.Hp > 0)
             {
                 enemy.Hp -= 1;
@@ -56,7 +58,7 @@ public class NormalEnemy : MonoBehaviour
             if (enemy.Hp == 0)
             {
                 //Debug.Log("Get Score");
-
+                isDead = true;
                 Destroy(normalEnemy, 0.5f);
                 GameManager.instance.score += enemy.Score;
 
