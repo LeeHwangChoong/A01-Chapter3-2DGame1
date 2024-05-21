@@ -9,7 +9,7 @@ public class NormalEnemy : MonoBehaviour
 
     public EnemyData enemy = new(1, 0.01f, 1, EnemyType.normal);
 
-    private bool IsTrigger;
+    //private bool IsTrigger;
 
     void Start()
     {
@@ -58,7 +58,6 @@ public class NormalEnemy : MonoBehaviour
                 //Debug.Log("Get Score");
 
                 Destroy(normalEnemy, 0.5f);
-                IsTrigger = true;
                 GameManager.instance.score += enemy.Score;
 
             }
