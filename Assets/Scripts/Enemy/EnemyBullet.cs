@@ -22,7 +22,7 @@ public class EnemyBullet : MonoBehaviour
         */
         if (transform.position.y < -5.0f)
         {
-            Debug.Log("Destroy Enemy Bullet");
+            //Debug.Log("Destroy Enemy Bullet");
             Destroy(gameObject);
         }
     }
