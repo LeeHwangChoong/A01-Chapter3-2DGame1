@@ -8,8 +8,6 @@ public class NormalEnemy : MonoBehaviour
     public GameObject enemyBullet;
 
     public EnemyData enemy = new(1, 0.01f, 1);
-    
-    public GameObject player;
 
     void Start()
     {
@@ -41,7 +39,7 @@ public class NormalEnemy : MonoBehaviour
             if (transform.position.y < -4.0f)
             {
                 Debug.Log("Enemy Move");
-                Destroy(normalEnemy, 3.0f);
+                Destroy(normalEnemy, 2.0f);
             }
         }
     }
@@ -56,7 +54,7 @@ public class NormalEnemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("PlayerBullet"))
         {
             Debug.Log("Enemy Damage Detected");
             if (enemy.Hp > 0)
@@ -72,9 +70,9 @@ public class NormalEnemy : MonoBehaviour
                 Debug.Log("Get Score");
 
                 //Get Score
+                Destroy(normalEnemy, 0.5f);
                 GameManager.instance.score += enemy.Score;
 
-                Destroy(normalEnemy, 2.0f);
             }
         }
     }
