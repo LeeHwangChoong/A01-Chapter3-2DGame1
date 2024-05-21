@@ -31,7 +31,7 @@ public class EnemyBullet : MonoBehaviour
             case 1:
                 break;
             case 2:
-                transform.position += dir * 0.01f;
+                transform.position += dir * 0.005f;
                 break;
         }
 

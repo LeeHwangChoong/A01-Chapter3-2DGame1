@@ -1,18 +1,22 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 
-public class NormalEnemy : MonoBehaviour
+public class FasterEnemy : MonoBehaviour
 {
-    public GameObject normalEnemy;
+    public GameObject fasterEnemy;
     public GameObject enemyBullet;
+    //public Transform EnemySpawn;
+    //public int enemyType = 1;
 
-    private EnemyData enemy = new(1, 0.01f, 1, EnemyType.normal);
+    private EnemyData enemy = new EnemyData(2, 0.005f, 1, EnemyType.faster);
 
     //private bool IsTrigger;
 
     void Start()
     {
+        
         InvokeRepeating("Attack", 0.1f, 2.0f);
     }
 
@@ -31,7 +35,7 @@ public class NormalEnemy : MonoBehaviour
             if (transform.position.y < -4.0f)
             {
                 //Debug.Log("Enemy Move");
-                Destroy(normalEnemy, 2.0f);
+                Destroy(fasterEnemy, 2.0f);
             }
         }
     }
@@ -57,7 +61,7 @@ public class NormalEnemy : MonoBehaviour
             {
                 //Debug.Log("Get Score");
 
-                Destroy(normalEnemy, 0.5f);
+                Destroy(fasterEnemy, 0.5f);
                 GameManager.instance.score += enemy.Score;
 
             }

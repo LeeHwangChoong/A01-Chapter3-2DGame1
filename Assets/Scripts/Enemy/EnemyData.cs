@@ -13,7 +13,7 @@ public enum EnemyType
 public class EnemyData // : MonoBehaviour
 {
     public int Hp { get; set; }
-    public float Speed { get; set; }
+    public float Speed { get; }
     public int Score { get; }
 
     private EnemyType Type;
@@ -33,8 +33,17 @@ public class EnemyData // : MonoBehaviour
     public void InitEnemy()
     {
         EnemyDB.Add(1, new EnemyData(1, 0.01f, 1, EnemyType.normal));  
-        EnemyDB.Add(2, new EnemyData(1, 0.02f, 1, EnemyType.faster));  
+        EnemyDB.Add(2, new EnemyData(1, 0.03f, 1, EnemyType.faster));  
         EnemyDB.Add(3, new EnemyData(2, 0.005f, 1, EnemyType.solid));  
-        EnemyDB.Add(4, new EnemyData(20, 0.0f, 100, EnemyType.boss));  
+        EnemyDB.Add(4, new EnemyData(20, 0.0f, 100, EnemyType.boss));
+        GetEnemy(1);
+    }
+    public EnemyData GetEnemy(int type)
+    {
+        foreach (KeyValuePair<int, EnemyData> key in EnemyDB)
+        {
+
+        }
+        return null;
     }
 }
