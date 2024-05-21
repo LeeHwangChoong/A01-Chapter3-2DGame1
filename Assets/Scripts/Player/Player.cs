@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     public GameObject bulletC;
     public GameObject bulletD;
 
+    public GameObject explosion;
     public GameManager manager;
     public GameObject shieldImage;  // 추가    
 
@@ -90,6 +91,7 @@ public class Player : MonoBehaviour
                 // 적의 공격을 받음
                 life--;
                 manager.UpdateLife(life);
+                Instantiate(explosion, transform.position, Quaternion.identity);
                 if (life == 0)
                 {
                     manager.GameOver();

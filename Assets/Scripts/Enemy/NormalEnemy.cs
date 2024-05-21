@@ -6,6 +6,7 @@ public class NormalEnemy : MonoBehaviour
 {
     public GameObject normalEnemy;
     public GameObject enemyBullet;
+    public GameObject explosion;
 
     private EnemyData enemy = new(1, 0.01f, 1, EnemyType.normal);
 
@@ -57,7 +58,8 @@ public class NormalEnemy : MonoBehaviour
             {
                 //Debug.Log("Get Score");
 
-                Destroy(normalEnemy, 0.5f);
+                Destroy(normalEnemy);
+                Instantiate(explosion, transform.position, Quaternion.identity);
                 GameManager.instance.score += enemy.Score;
 
             }
