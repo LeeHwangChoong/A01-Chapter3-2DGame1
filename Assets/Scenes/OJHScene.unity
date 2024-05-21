@@ -3070,23 +3070,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 9130802033823966097, guid: f1d0e28b965744fb9b3835e00648b33c, type: 3}
   m_PrefabInstance: {fileID: 6673591107484675153}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2114821699
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2114821693}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76d463bcb6cbd094e836d541820bbcd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 3
-  isTouchTop: 0
-  isTouchBottom: 0
-  isTouchLeft: 0
-  isTouchRight: 0
 --- !u!1 &2115097762
 GameObject:
   m_ObjectHideFlags: 0
@@ -3401,34 +3384,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5180442321844871902, guid: f1d0e28b965744fb9b3835e00648b33c, type: 3}
-      propertyPath: bulletA
-      value: 
-      objectReference: {fileID: 7313373345236402538, guid: a2212bc7940f6ed4aab3c9eb06e4d76e, type: 3}
-    - target: {fileID: 5180442321844871902, guid: f1d0e28b965744fb9b3835e00648b33c, type: 3}
-      propertyPath: bulletB
-      value: 
-      objectReference: {fileID: 6969168261939222083, guid: 8b197424fcbb93c4c87404b0e6884486, type: 3}
-    - target: {fileID: 5180442321844871902, guid: f1d0e28b965744fb9b3835e00648b33c, type: 3}
-      propertyPath: bulletC
-      value: 
-      objectReference: {fileID: 2634109294865751684, guid: 0dd3b7b109475184aab2444246ab01eb, type: 3}
-    - target: {fileID: 5180442321844871902, guid: f1d0e28b965744fb9b3835e00648b33c, type: 3}
-      propertyPath: bulletD
-      value: 
-      objectReference: {fileID: 673865768217865083, guid: b2c5b4e28a4344444b4903b9b465ef76, type: 3}
-    - target: {fileID: 5180442321844871902, guid: f1d0e28b965744fb9b3835e00648b33c, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5180442321844871902, guid: f1d0e28b965744fb9b3835e00648b33c, type: 3}
-      propertyPath: maxShotDelay
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5180442321844871902, guid: f1d0e28b965744fb9b3835e00648b33c, type: 3}
-      propertyPath: isTouchBottom
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 9130802033823966097, guid: f1d0e28b965744fb9b3835e00648b33c, type: 3}
       propertyPath: m_Name
       value: Player
@@ -3436,10 +3391,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 9130802033823966097, guid: f1d0e28b965744fb9b3835e00648b33c, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2114821699}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1d0e28b965744fb9b3835e00648b33c, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
