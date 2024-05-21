@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
     public Image[] lifeImage;
     public GameObject gameOverSet;
 
+    public Transform EnemySpawn; // EnemySpawn instantiate position
+
     public bool isLive;
 
     private void Awake()
@@ -73,7 +75,8 @@ public class GameManager : MonoBehaviour
         int ranPoint = Random.Range(0, 5);
         Instantiate(enemyObjs[ranEnemy],
             spawnPoints[ranPoint].position,
-            spawnPoints[ranPoint].rotation);
+            spawnPoints[ranPoint].rotation,
+            EnemySpawn);
     }
 
     public void GameOver()
