@@ -25,8 +25,6 @@ public class GameManager : MonoBehaviour
 
     public bool isLive;
 
-    public Transform EnemySpawn; // Enemy prefab instantiate position
-
     private void Awake()
     {
         if (instance == null)
@@ -78,8 +76,7 @@ public class GameManager : MonoBehaviour
         int ranPoint = Random.Range(0, 5);
         Instantiate(enemyObjs[ranEnemy],
             spawnPoints[ranPoint].position,
-            spawnPoints[ranPoint].rotation,
-            EnemySpawn);
+            spawnPoints[ranPoint].rotation);
     }
 
     public void GameOver()

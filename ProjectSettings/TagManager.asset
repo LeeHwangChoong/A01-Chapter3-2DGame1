@@ -10,8 +10,7 @@ TagManager:
   - ShieldItem
   - Border
   - BulletBorder
-  - Enemy
-  - PlayerBullet
+  - Test_enemy
   layers:
   - Default
   - TransparentFX
