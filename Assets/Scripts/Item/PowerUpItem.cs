@@ -5,6 +5,7 @@ public class PowerUpItem : AllItemUse
 {
     public override void ItemUse()
     {
+        base.ItemUse();
         Player player = FindObjectOfType<Player>(); // 씬에서 Player 오브젝트를 찾아서
         if (player != null)
         {

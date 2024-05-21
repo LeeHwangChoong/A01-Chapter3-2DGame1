@@ -8,6 +8,7 @@ public class ShieldItem : AllItemUse
 
     public override void ItemUse()
     {
+        base.ItemUse();
         ShieldManager.Instance.ActivateShield(shieldObject, shieldTime);
     }
 }

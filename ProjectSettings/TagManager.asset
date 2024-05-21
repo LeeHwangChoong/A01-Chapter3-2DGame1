@@ -11,6 +11,9 @@ TagManager:
   - Border
   - Enemy
   - PlayerBullet
+  - Test_enemy
+  - BulletBorder
+  - Shield
   layers:
   - Default
   - TransparentFX
