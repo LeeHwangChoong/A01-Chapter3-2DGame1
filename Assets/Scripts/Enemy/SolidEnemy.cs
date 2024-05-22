@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class SolidEnemy : MonoBehaviour
 {
@@ -12,13 +11,14 @@ public class SolidEnemy : MonoBehaviour
 
     void Start()
     {
-        InvokeRepeating("Attack", 0.1f, 3.0f);
+        InvokeRepeating("Attack", 0.1f, 7.0f);
     }
 
     void Update()
     {
         if (!GameManager.instance.isLive)
             return;
+
         Move(enemy);
     }
 
@@ -27,6 +27,7 @@ public class SolidEnemy : MonoBehaviour
         if (enemy.Hp > 0)
         {
             transform.position += Vector3.down * enemy.Speed;
+            transform.Rotate(new Vector3(0f, 0f, 30f), 5.0f);
             if (transform.position.y < -4.0f)
             {
                 Destroy(solidEnemy, 2.0f);
@@ -54,15 +55,15 @@ public class SolidEnemy : MonoBehaviour
                 Instantiate(explosion, transform.position, Quaternion.identity);
 
                 GameManager.instance.score += enemy.Score;
-
             }
-
             else if (enemy.Hp > 1)
             {
                 enemy.Hp -= 1;
             }
             else
+            {
                 Debug.Log("enemy 충돌 감지-체력 감소 오류입니다.");
+            }
         }
     }
 }
