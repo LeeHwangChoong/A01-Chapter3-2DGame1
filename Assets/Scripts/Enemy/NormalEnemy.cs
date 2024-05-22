@@ -59,7 +59,7 @@ public class NormalEnemy : MonoBehaviour
             else if (enemy.Hp == 0)
             {
                 //Debug.Log("Get Score");
-
+                isDead = true;
                 Destroy(normalEnemy);
                 Instantiate(explosion, transform.position, Quaternion.identity);
 
