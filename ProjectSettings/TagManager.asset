@@ -9,8 +9,11 @@ TagManager:
   - PowerUpItem
   - ShieldItem
   - Border
-  - BulletBorder
+  - Enemy
+  - PlayerBullet
   - Test_enemy
+  - BulletBorder
+  - Shield
   layers:
   - Default
   - TransparentFX

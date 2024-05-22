@@ -18,16 +18,13 @@ public class ItemCollider : MonoBehaviour
         switch (itemTag)
         {
             case "HealItem":
-                item.GetComponent<HealItem>().ItemUse();
-                Debug.Log("힐아이템");                
+                item.GetComponent<HealItem>().ItemUse();                                
                 break;
             case "PowerUpItem":
-                item.GetComponent<PowerUpItem>().ItemUse();
-                Debug.Log("파워업 아이템");
+                item.GetComponent<PowerUpItem>().ItemUse();                
                 break;
             case "ShieldItem":                
-                item.GetComponent<ShieldItem>().ItemUse();
-                Debug.Log("쉴드아이템");                
+                item.GetComponent<ShieldItem>().ItemUse();                             
                 break;
             default:
                 break;
