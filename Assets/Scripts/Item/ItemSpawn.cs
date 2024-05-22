@@ -18,7 +18,7 @@ public class ItemSpawn : MonoBehaviour
         while (true)
         {
             // 15초에서 40초사이의 랜덤한시간에 아이템 생성
-            float spawnInterval = Random.Range(10f, 25f); 
+            float spawnInterval = Random.Range(10f, 20f); 
             yield return new WaitForSeconds(spawnInterval);
 
             // 랜덤한 위치에 랜덤한 아이템을 생성
@@ -33,9 +33,7 @@ public class ItemSpawn : MonoBehaviour
             if (shieldItem != null && player != null)
             {
                 shieldItem.shieldObject = player.transform.Find("MainSprite/ShieldImage").gameObject;
-            }
-
-            Destroy(newItem, 10f); // 7초 후에 아이템 삭제
+            }            
         }
     }
 }
