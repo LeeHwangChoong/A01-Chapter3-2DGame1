@@ -17,9 +17,13 @@ public class GameManager : MonoBehaviour
 
     public GameObject player;
     public int score;
+
+    public int highScore; // 최고 점수 변수 추가
     
     //UI
     public Text scoreText;
+    public Text nowScoreText;
+    public Text highScoreText; // 최고 점수 UI 추가
     public Image[] lifeImage;
     public GameObject gameOverSet;
 
@@ -31,6 +35,10 @@ public class GameManager : MonoBehaviour
     {
         if (instance == null)
             instance = this;
+        Time.timeScale = 1.0f;
+
+        // 최고 점수 로드
+        highScore = PlayerPrefs.GetInt("HighScore", 0);
     }
 
     void Update()
@@ -47,8 +55,6 @@ public class GameManager : MonoBehaviour
             maxSpawnDelay = Random.Range(0.5f, 3f);
             curSpawnDelay = 0;
         }
-
-        //Player playerLogic = player.GetComponent<Player>();
         scoreText.text = string.Format("{0:n0}", score);
     }
 
@@ -69,14 +75,7 @@ public class GameManager : MonoBehaviour
                 lifeImage[i].color = new Color(1, 1, 1, 0);
                 Debug.Log("off");
             }
-            //lifeImage[i].color = new Color(1, 1, 1, 0);
         }
-        /*
-        //Life Active
-        for (int i = 0; i < life; i++)
-        {
-            lifeImage[i].color = new Color(1, 1, 1, 1);
-        }*/
     }
     
     void SpawnEnemy()
@@ -89,7 +88,7 @@ public class GameManager : MonoBehaviour
             spawnPoints[ranPoint].rotation,
             EnemySpawn);
     }
-    //GameManager �����Ѱ�
+
     public void RespawnPlayer()
     {
         Invoke("Exe", 2f);
@@ -102,7 +101,18 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        isLive = false;
+        Time.timeScale = 0.0f;
+        nowScoreText.text = scoreText.text;
         gameOverSet.SetActive(true);
+
+        // 최고 점수 갱신
+        if (score > highScore)
+        {
+            highScore = score;
+            PlayerPrefs.SetInt("HighScore", highScore);
+        }
+        highScoreText.text = string.Format("{0:n0}", highScore); 
     }
 
     public void GameRetry()
@@ -129,5 +139,4 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 1;
         }
     }
-    
 }

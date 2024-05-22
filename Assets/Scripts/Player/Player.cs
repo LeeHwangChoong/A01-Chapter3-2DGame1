@@ -17,7 +17,9 @@ public class Player : MonoBehaviour
     public GameObject bulletD;
 
     public GameManager manager;
-    public GameObject shieldImage;  // 추가    
+    public GameObject shieldImage; 
+
+    public int highScore;
 
     // Update is called once per frame
     void Update()
@@ -85,9 +87,8 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {      
-            if (!shieldImage.activeSelf) //추가
+            if (!shieldImage.activeSelf)
             {
-                // 적의 공격을 받음
                 life--;
                 manager.UpdateLife(life);
                 if (life == 0)
