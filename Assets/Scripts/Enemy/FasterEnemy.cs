@@ -9,7 +9,7 @@ public class FasterEnemy : MonoBehaviour
     public GameObject enemyBullet;
     public GameObject explosion;
 
-    private EnemyData enemy = new EnemyData(1, 0.005f, 1);
+    private EnemyData enemy = new EnemyData(1, 0.005f, 10);
 
     private bool isDead;
 

@@ -8,7 +8,7 @@ public class NormalEnemy : MonoBehaviour
     public GameObject enemyBullet;
     public GameObject explosion;
 
-    private EnemyData enemy = new(1, 0.01f, 1);
+    private EnemyData enemy = new(1, 0.01f, 10);
     private bool isDead;
 
     void Start()
