@@ -18,7 +18,7 @@ public class ItemSpawn : MonoBehaviour
         while (true)
         {
             // 15초에서 40초사이의 랜덤한시간에 아이템 생성
-            float spawnInterval = Random.Range(1f, 4f); 
+            float spawnInterval = Random.Range(10f, 25f); 
             yield return new WaitForSeconds(spawnInterval);
 
             // 랜덤한 위치에 랜덤한 아이템을 생성
