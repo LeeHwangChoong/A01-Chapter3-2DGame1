@@ -7,12 +7,12 @@ public class SolidEnemy : MonoBehaviour
     public GameObject enemyBullet;
     public GameObject explosion;
 
-    private EnemyData enemy = new(2, 0.005f, 10);
+    private EnemyData enemy = new(2, 0.005f, 20);
     private bool isDead;
 
     void Start()
     {
-        //InvokeRepeating("Attack", 0.1f, 2.0f);
+        InvokeRepeating("Attack", 0.1f, 3.0f);
     }
 
     void Update()
