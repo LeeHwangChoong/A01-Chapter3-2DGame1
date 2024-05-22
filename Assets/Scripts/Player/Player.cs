@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     public GameManager manager;
     public GameObject shieldImage;  // Ãß°¡
     public GameObject Boomeffect;
+    public int highscore;
 
     // Update is called once per frame
     void Update()
