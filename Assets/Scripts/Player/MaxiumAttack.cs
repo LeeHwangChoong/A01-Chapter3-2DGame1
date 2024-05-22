@@ -10,12 +10,8 @@ public class MaxiumAttack : MonoBehaviour
 
     // Start is called before the first frame update
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void Start()
     {
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            SoundManager.Instance.PlayerDeadSound();
-            Destroy(collision.gameObject);
-        }
+        SoundManager.Instance.PlayerDeadSound();
     }
 }

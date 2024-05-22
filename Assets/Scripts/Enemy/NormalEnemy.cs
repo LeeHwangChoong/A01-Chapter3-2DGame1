@@ -65,5 +65,6 @@ public class NormalEnemy : MonoBehaviour
             else
                 Debug.Log("enemy 충돌 감지-체력 감소 오류입니다.");
         }
+        
     }
 }
