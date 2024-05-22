@@ -55,22 +55,19 @@ public class GameManager : MonoBehaviour
     //life Appear
     public void UpdateLife(int life)
     {
-        Debug.Log(life);
         //Life Disable
         for (int i = 0; i < lifeImage.Length; i++)
         {
             if(i < life)
             {
                 lifeImage[i].color = new Color(1, 1, 1, 1);
-                Debug.Log("on");
             }
             else
             {
                 lifeImage[i].color = new Color(1, 1, 1, 0);
-                Debug.Log("off");
             }
-            //lifeImage[i].color = new Color(1, 1, 1, 0);
         }
+        //lifeImage[i].color = new Color(1, 1, 1, 0);
         /*
         //Life Active
         for (int i = 0; i < life; i++)
@@ -78,7 +75,7 @@ public class GameManager : MonoBehaviour
             lifeImage[i].color = new Color(1, 1, 1, 1);
         }*/
     }
-    
+
     void SpawnEnemy()
     {
         Debug.Log("SpawnEnemy");

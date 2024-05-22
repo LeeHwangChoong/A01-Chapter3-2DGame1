@@ -18,7 +18,8 @@ public class Player : MonoBehaviour
 
     public GameObject explosion;
     public GameManager manager;
-    public GameObject shieldImage;  // 추가    
+    public GameObject shieldImage;  // 추가
+    public GameObject Boomeffect;
 
     // Update is called once per frame
     void Update()

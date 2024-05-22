@@ -54,7 +54,7 @@ public class NormalEnemy : MonoBehaviour
                 Destroy(collision.gameObject);
             }
 
-            if (enemy.Hp == 0)
+            else if (enemy.Hp == 0)
             {
                 //Debug.Log("Get Score");
 

@@ -26,6 +26,7 @@ public class FasterEnemy : MonoBehaviour
         if (!GameManager.instance.isLive)
             return;
         MoveEnemy(enemy);
+
     }
 
     private void MoveEnemy(EnemyData enemy)
