@@ -6,6 +6,7 @@ public class NormalEnemy : MonoBehaviour
 {
     public GameObject normalEnemy;
     public GameObject enemyBullet;
+    public GameObject explosion;
 
     private EnemyData enemy = new(1, 0.01f, 1, EnemyType.normal);
     private bool isDead;
@@ -50,16 +51,18 @@ public class NormalEnemy : MonoBehaviour
         {
 
             if (enemy.Hp > 0)
-            {
+            {                
                 enemy.Hp -= 1;
                 Destroy(collision.gameObject);
             }
 
-            if (enemy.Hp == 0)
+            else if (enemy.Hp == 0)
             {
                 //Debug.Log("Get Score");
-                isDead = true;
-                Destroy(normalEnemy, 0.5f);
+
+                Destroy(normalEnemy);
+                Instantiate(explosion, transform.position, Quaternion.identity);
+
                 GameManager.instance.score += enemy.Score;
 
             }

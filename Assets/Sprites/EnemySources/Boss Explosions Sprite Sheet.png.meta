@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -121,7 +121,175 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Boss Explosions Sprite Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 20
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12ede8111edc2904dad87df7367c47fb
+      internalID: 273889758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss Explosions Sprite Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 18
+        width: 31
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 010f39aaf30a8854aa993e349d3963be
+      internalID: 398804780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss Explosions Sprite Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 16
+        width: 35
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8986f4caec692741b43b2be7cd6624f
+      internalID: -810947305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss Explosions Sprite Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 13
+        width: 42
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f868e2fe57937544393ffe86fef53765
+      internalID: 1456457894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss Explosions Sprite Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 18
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8ff60fb71e690c449efa505c1741ef0
+      internalID: -27751668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss Explosions Sprite Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 17
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94dfe592c9192924aa7143ac7a7588da
+      internalID: 403498388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss Explosions Sprite Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 16
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93387e6ecccb9c74cb878268660c0e22
+      internalID: 680744819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Boss Explosions Sprite Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 13
+        width: 37
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e0e3f836c4630a468608b561805f380
+      internalID: -101020937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -132,7 +300,15 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Boss Explosions Sprite Sheet_0: 273889758
+      Boss Explosions Sprite Sheet_1: 398804780
+      Boss Explosions Sprite Sheet_2: -810947305
+      Boss Explosions Sprite Sheet_3: 1456457894
+      Boss Explosions Sprite Sheet_4: -27751668
+      Boss Explosions Sprite Sheet_5: 403498388
+      Boss Explosions Sprite Sheet_6: 680744819
+      Boss Explosions Sprite Sheet_7: -101020937
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -9,7 +9,7 @@ public class AllItemUse : MonoBehaviour
     public virtual void ItemUse()
     {
         SoundManager.Instance.ItemSound(itemSoundClip);
-        SoundManager.Instance.SetVolume(itemVolume);
+        SoundManager.Instance.SetItemVolume(itemVolume);
     }
 }
 
