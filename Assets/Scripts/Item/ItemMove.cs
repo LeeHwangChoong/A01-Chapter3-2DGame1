@@ -4,7 +4,7 @@ public class ItemMove : MonoBehaviour
 {
     //아이템이 처음 등장할때 랜덤한 방향으로 이동
     //벽과 부딪히면 튕겨져 나가게하기(당구처럼)
-    private float itemSpeed = 3f;
+    private float itemSpeed = 2f;
     private Vector2 moveDirection;
 
     private void Start()
@@ -17,6 +17,8 @@ public class ItemMove : MonoBehaviour
     private void Update()
     {
         // 아이템 이동
+        if (!GameManager.instance.isLive)
+            return;
         transform.Translate(moveDirection * itemSpeed * Time.deltaTime, Space.World);
 
         CheckScreenBoundary();

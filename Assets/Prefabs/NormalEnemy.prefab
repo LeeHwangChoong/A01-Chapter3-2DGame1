@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5761309688143410374}
@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   normalEnemy: {fileID: 1015105322025880377}
   enemyBullet: {fileID: 3766691973252185443, guid: e3cbf96ac69697245b485d0ac801a537, type: 3}
+  explosion: {fileID: 6014061785212579058, guid: e51bd74b25c66994ea9cec0fc907414e, type: 3}
 --- !u!61 &3394372558664678500
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -91,7 +92,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6350201, y: 0.23590788}
+  m_Size: {x: 0.70533, y: 0.23590788}
   m_EdgeRadius: 0
 --- !u!1 &1394897725221412570
 GameObject:
@@ -165,7 +166,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -1287400347, guid: f9687a256d9d2554b96e074ba8353036, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

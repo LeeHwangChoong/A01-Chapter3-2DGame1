@@ -3,9 +3,13 @@ using UnityEngine;
 
 public class AllItemUse : MonoBehaviour
 {
+    public AudioClip itemSoundClip;
+    public float itemVolume = 1f;
+
     public virtual void ItemUse()
     {
-        // 각 아이템에 대한 특별한 효과를 구현
+        SoundManager.Instance.ItemSound(itemSoundClip);
+        SoundManager.Instance.SetItemVolume(itemVolume);
     }
 }
 

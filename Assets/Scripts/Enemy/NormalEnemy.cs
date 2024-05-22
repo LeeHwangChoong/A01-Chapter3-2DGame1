@@ -6,74 +6,65 @@ public class NormalEnemy : MonoBehaviour
 {
     public GameObject normalEnemy;
     public GameObject enemyBullet;
+    public GameObject explosion;
 
-    public EnemyData enemy = new(1, 0.01f, 1);
-    
-    public GameObject player;
+    private EnemyData enemy = new(1, 0.01f, 10);
+    private bool isDead;
 
     void Start()
     {
-        SpawnEnemy();
         InvokeRepeating("Attack", 0.1f, 2.0f);
     }
 
     void Update()
     {
-        MoveEnemy(enemy);
+        if (!GameManager.instance.isLive)
+            return;
+        Move(enemy);
     }
 
-    private void SpawnEnemy()
-    {
-        Debug.Log("Spawn Enemy");
-
-        float x = Random.Range(-2.5f, 2.5f);
-        float y = 5.0f;
-        transform.position = new Vector3(x, y);
-    }
-
-    private void MoveEnemy(EnemyData enemy)
+    private void Move(EnemyData enemy)
     {
         if (enemy.Hp > 0)
         {
             transform.position += Vector3.down * enemy.Speed;
             if (transform.position.y < -4.0f)
             {
-                Debug.Log("Enemy Move");
-                Destroy(normalEnemy, 3.0f);
+                Destroy(normalEnemy, 2.0f);
             }
         }
     }
 
     private void Attack()
     {
-        Debug.Log("Enemy Attacks");
         float x = transform.position.x;
         float y = transform.position.y;
-        Instantiate(enemyBullet, new Vector2(x, y), Quaternion.identity, transform);
+        Instantiate(enemyBullet, new Vector2(x, y), Quaternion.identity);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("PlayerBullet") && !isDead)
         {
-            Debug.Log("Enemy Damage Detected");
-            if (enemy.Hp > 0)
-            {
-                Debug.Log($"Origin Hp: {enemy.Hp}");
-                enemy.Hp -= 1;
-                Destroy(collision.gameObject);
-                Debug.Log($"Now Hp: {enemy.Hp}");
-            }
-
-            if (enemy.Hp == 0)
+            Destroy(collision.gameObject);
+            if (enemy.Hp == 1)
             {
                 Debug.Log("Get Score");
-
-                //Get Score
+                isDead = true;
+                Destroy(normalEnemy);
+                Instantiate(explosion, transform.position, Quaternion.identity);
+                
                 GameManager.instance.score += enemy.Score;
-
-                Destroy(normalEnemy, 2.0f);
+                SoundManager.Instance.EnemyDeadSound();
             }
+
+            else if (enemy.Hp > 1)
+            {
+                enemy.Hp -= 1;
+            }
+            else
+                Debug.Log("enemy 충돌 감지-체력 감소 오류입니다.");
         }
+        
     }
 }
