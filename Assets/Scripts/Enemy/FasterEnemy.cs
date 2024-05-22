@@ -66,6 +66,7 @@ public class FasterEnemy : MonoBehaviour
                 Destroy(fasterEnemy);
                 Instantiate(explosion, transform.position, Quaternion.identity);
                 GameManager.instance.score += enemy.Score;
+                SoundManager.Instance.EnemyDeadSound();
 
             }
         }
