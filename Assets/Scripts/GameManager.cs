@@ -18,6 +18,9 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public int score;
 
+    public TextMesh msgText;
+    public Text bombCountText;
+
     public int highScore; // 최고 점수 변수 추가
     
     //UI

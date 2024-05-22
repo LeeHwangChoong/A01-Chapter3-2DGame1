@@ -845,6 +845,8 @@ MonoBehaviour:
   curSpawnDelay: 0
   player: {fileID: 2114821693}
   score: 0
+  msgText: {fileID: 0}
+  bombCountText: {fileID: 0}
   highScore: 0
   scoreText: {fileID: 1378016345}
   nowScoreText: {fileID: 988767456}
@@ -4627,9 +4629,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5180442321844871902, guid: f1d0e28b965744fb9b3835e00648b33c, type: 3}
+      propertyPath: Bomb
+      value: 
+      objectReference: {fileID: 1394868263908969628, guid: c66fe05cabd208846bad4b5712c47dc9, type: 3}
+    - target: {fileID: 5180442321844871902, guid: f1d0e28b965744fb9b3835e00648b33c, type: 3}
       propertyPath: manager
       value: 
       objectReference: {fileID: 446897679}
+    - target: {fileID: 5180442321844871902, guid: f1d0e28b965744fb9b3835e00648b33c, type: 3}
+      propertyPath: centerPos
+      value: 
+      objectReference: {fileID: 7768541124565220800, guid: c66fe05cabd208846bad4b5712c47dc9, type: 3}
     - target: {fileID: 5180442321844871902, guid: f1d0e28b965744fb9b3835e00648b33c, type: 3}
       propertyPath: explosion
       value: 
