@@ -1,11 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public int life = 3;
+    public int life;
     public float speed;
     public float power;
     public float maxShotDelay;
@@ -16,10 +18,15 @@ public class Player : MonoBehaviour
     public GameObject bulletC;
     public GameObject bulletD;
 
+    public GameObject Bomb;
+    public int bomb = 1;
+    public Transform centerPos;
+
+    public bool canBomb = true;
+
     public GameObject explosion;
     public GameManager manager;
     public GameObject shieldImage;  // Ãß°¡
-    public GameObject Boomeffect;
     public int highscore;
 
     // Update is called once per frame
@@ -29,6 +36,15 @@ public class Player : MonoBehaviour
             return;
         Fire();
         Reload();
+        if (canBomb)
+        {
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
+                GameObject BulletBomb = Instantiate(Bomb, centerPos.transform.position, centerPos.transform.rotation);
+                Destroy(BulletBomb, 1f);
+                canBomb = false;
+            }
+        }
     }
 
     private void Fire()
