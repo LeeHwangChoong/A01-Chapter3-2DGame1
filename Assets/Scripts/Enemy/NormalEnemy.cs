@@ -53,9 +53,9 @@ public class NormalEnemy : MonoBehaviour
                 isDead = true;
                 Destroy(normalEnemy);
                 Instantiate(explosion, transform.position, Quaternion.identity);
-
+                
                 GameManager.instance.score += enemy.Score;
-
+                SoundManager.Instance.EnemyDeadSound();
             }
 
             else if (enemy.Hp > 1)
