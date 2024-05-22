@@ -16,8 +16,11 @@ public class Player : MonoBehaviour
     public GameObject bulletC;
     public GameObject bulletD;
 
+    public GameObject explosion;
     public GameManager manager;
-    public GameObject shieldImage;  // 추가    
+    public GameObject shieldImage;  // 추가
+    public GameObject Boomeffect;
+    public int highscore;
 
     // Update is called once per frame
     void Update()
@@ -95,6 +98,7 @@ public class Player : MonoBehaviour
                 SoundManager.Instance.PlayerDeadSound(); //파괴 사운드 추가
                 life--;
                 manager.UpdateLife(life);
+                Instantiate(explosion, transform.position, Quaternion.identity);
                 if (life == 0)
                 {
                     manager.GameOver();

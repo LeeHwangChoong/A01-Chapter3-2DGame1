@@ -7,6 +7,7 @@ public class FasterEnemy : MonoBehaviour
 {
     public GameObject fasterEnemy;
     public GameObject enemyBullet;
+    public GameObject explosion;
     //public Transform EnemySpawn;
     //public int enemyType = 1;
 
@@ -25,6 +26,7 @@ public class FasterEnemy : MonoBehaviour
         if (!GameManager.instance.isLive)
             return;
         MoveEnemy(enemy);
+
     }
 
     private void MoveEnemy(EnemyData enemy)
@@ -61,7 +63,8 @@ public class FasterEnemy : MonoBehaviour
             {
                 //Debug.Log("Get Score");
 
-                Destroy(fasterEnemy, 0.5f);
+                Destroy(fasterEnemy);
+                Instantiate(explosion, transform.position, Quaternion.identity);
                 GameManager.instance.score += enemy.Score;
 
             }
