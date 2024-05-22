@@ -177,4 +177,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fasterEnemy: {fileID: 2081026191277762159}
   enemyBullet: {fileID: 3766691973252185443, guid: 453891c2913d9d74588d6da0001ba208, type: 3}
-  EnemySpawn: {fileID: 0}
+  explosion: {fileID: 6014061785212579058, guid: e51bd74b25c66994ea9cec0fc907414e, type: 3}
