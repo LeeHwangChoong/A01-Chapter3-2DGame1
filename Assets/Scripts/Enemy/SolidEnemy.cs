@@ -1,19 +1,18 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-
-public class NormalEnemy : MonoBehaviour
+public class SolidEnemy : MonoBehaviour
 {
-    public GameObject normalEnemy;
+    public GameObject solidEnemy;
     public GameObject enemyBullet;
     public GameObject explosion;
 
-    private EnemyData enemy = new(1, 0.01f, 10);
+    private EnemyData enemy = new(2, 0.005f, 20);
     private bool isDead;
 
     void Start()
     {
-        InvokeRepeating("Attack", 0.1f, 2.0f);
+        InvokeRepeating("Attack", 0.1f, 3.0f);
     }
 
     void Update()
@@ -30,7 +29,7 @@ public class NormalEnemy : MonoBehaviour
             transform.position += Vector3.down * enemy.Speed;
             if (transform.position.y < -4.0f)
             {
-                Destroy(normalEnemy, 2.0f);
+                Destroy(solidEnemy, 2.0f);
             }
         }
     }
@@ -51,11 +50,11 @@ public class NormalEnemy : MonoBehaviour
             {
                 Debug.Log("Get Score");
                 isDead = true;
-                Destroy(normalEnemy);
+                Destroy(solidEnemy);
                 Instantiate(explosion, transform.position, Quaternion.identity);
-                
+
                 GameManager.instance.score += enemy.Score;
-                SoundManager.Instance.EnemyDeadSound();
+
             }
 
             else if (enemy.Hp > 1)

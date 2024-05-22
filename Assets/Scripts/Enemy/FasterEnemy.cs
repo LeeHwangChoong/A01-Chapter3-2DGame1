@@ -8,12 +8,11 @@ public class FasterEnemy : MonoBehaviour
     public GameObject fasterEnemy;
     public GameObject enemyBullet;
     public GameObject explosion;
-    //public Transform EnemySpawn;
-    //public int enemyType = 1;
 
-    private EnemyData enemy = new EnemyData(2, 0.005f, 1, EnemyType.faster);
+    private EnemyData enemy = new EnemyData(1, 0.005f, 10);
 
-    //private bool IsTrigger;
+    private bool isDead;
+
 
     void Start()
     {
@@ -46,29 +45,32 @@ public class FasterEnemy : MonoBehaviour
     {
         float x = transform.position.x;
         float y = transform.position.y;
-        Instantiate(enemyBullet, new Vector2(x, y), Quaternion.identity, transform);
+        Instantiate(enemyBullet, new Vector2(x, y), Quaternion.identity);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("PlayerBullet"))
+        if (collision.gameObject.CompareTag("PlayerBullet") && !isDead)
         {
-            if (enemy.Hp > 0)
+            Destroy(collision.gameObject);
+            if (enemy.Hp == 1)
             {
-                enemy.Hp -= 1;
-                Destroy(collision.gameObject);
-            }
-
-            if (enemy.Hp == 0)
-            {
-                //Debug.Log("Get Score");
-
+                Debug.Log("Get Score");
+                isDead = true;
                 Destroy(fasterEnemy);
                 Instantiate(explosion, transform.position, Quaternion.identity);
+
                 GameManager.instance.score += enemy.Score;
                 SoundManager.Instance.EnemyDeadSound();
 
             }
+
+            else if (enemy.Hp > 1)
+            {
+                enemy.Hp -= 1;
+            }
+            else
+                Debug.Log("enemy 충돌 감지-체력 감소 오류입니다.");
         }
     }
 }
