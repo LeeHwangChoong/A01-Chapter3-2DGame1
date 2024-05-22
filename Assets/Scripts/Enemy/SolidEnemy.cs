@@ -6,7 +6,7 @@ public class SolidEnemy : MonoBehaviour
     public GameObject enemyBullet;
     public GameObject explosion;
 
-    private EnemyData enemy = new(2, 0.005f, 20);
+    private EnemyData enemy = new(1, 0.005f, 20);
     private bool isDead;
 
     void Start()
