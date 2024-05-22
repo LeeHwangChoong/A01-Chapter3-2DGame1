@@ -8,7 +8,6 @@ public enum EnemyType
     boss
 }
 
-
 public class EnemyData // : MonoBehaviour
 {
     public int Hp { get; set; }
@@ -32,7 +31,7 @@ public class EnemyData // : MonoBehaviour
         EnemyDB.Add(EnemyType.faster, new EnemyData(1, 0.03f, 1));  
         EnemyDB.Add(EnemyType.solid, new EnemyData(2, 0.005f, 2));  
         EnemyDB.Add(EnemyType.boss, new EnemyData(20, 0.0f, 20));
-        GetEnemy(EnemyType.normal);
+        // GetEnemy(EnemyType.normal);
     }
     public EnemyData GetEnemy(EnemyType type)
     {

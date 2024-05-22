@@ -8,12 +8,11 @@ public class FasterEnemy : MonoBehaviour
     public GameObject fasterEnemy;
     public GameObject enemyBullet;
     public GameObject explosion;
-    //public Transform EnemySpawn;
-    //public int enemyType = 1;
 
-    private EnemyData enemy = new EnemyData(2, 0.005f, 1, EnemyType.faster);
+    private EnemyData enemy = new EnemyData(1, 0.005f, 1);
 
-    //private bool IsTrigger;
+    private bool isDead;
+
 
     void Start()
     {
@@ -51,23 +50,27 @@ public class FasterEnemy : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("PlayerBullet"))
+        if (collision.gameObject.CompareTag("PlayerBullet") && !isDead)
         {
-            if (enemy.Hp > 0)
+
+            if (enemy.Hp == 1)
+            {
+                Debug.Log("Get Score");
+                isDead = true;
+                Destroy(fasterEnemy);
+                Instantiate(explosion, transform.position, Quaternion.identity);
+
+                GameManager.instance.score += enemy.Score;
+
+            }
+
+            else if (enemy.Hp > 1)
             {
                 enemy.Hp -= 1;
                 Destroy(collision.gameObject);
             }
-
-            if (enemy.Hp == 0)
-            {
-                //Debug.Log("Get Score");
-
-                Destroy(fasterEnemy);
-                Instantiate(explosion, transform.position, Quaternion.identity);
-                GameManager.instance.score += enemy.Score;
-
-            }
+            else
+                Debug.Log("enemy 충돌 감지-체력 감소 오류입니다.");
         }
     }
 }
