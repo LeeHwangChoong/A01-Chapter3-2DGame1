@@ -49,10 +49,9 @@ public class NormalEnemy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("PlayerBullet") && !isDead)
         {
-
+            enemy.Hp -= 1;
             if (enemy.Hp > 0)
-            {                
-                enemy.Hp -= 1;
+            {           
                 Destroy(collision.gameObject);
             }
 
