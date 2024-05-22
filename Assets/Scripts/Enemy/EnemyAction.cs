@@ -9,7 +9,7 @@ public class EnemyAction : MonoBehaviour
     {
         if (enemy.Hp > 0)
         {
-            Debug.Log("EnemyAction Move");
+            //Debug.Log("EnemyAction Move");
             transform.position += Vector3.down * enemy.Speed;
             if (transform.position.y < -4.0f)
             {

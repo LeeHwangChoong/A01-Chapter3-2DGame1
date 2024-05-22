@@ -45,14 +45,14 @@ public class FasterEnemy : MonoBehaviour
     {
         float x = transform.position.x;
         float y = transform.position.y;
-        Instantiate(enemyBullet, new Vector2(x, y), Quaternion.identity, transform);
+        Instantiate(enemyBullet, new Vector2(x, y), Quaternion.identity);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("PlayerBullet") && !isDead)
         {
-
+            Destroy(collision.gameObject);
             if (enemy.Hp == 1)
             {
                 Debug.Log("Get Score");
@@ -67,7 +67,6 @@ public class FasterEnemy : MonoBehaviour
             else if (enemy.Hp > 1)
             {
                 enemy.Hp -= 1;
-                Destroy(collision.gameObject);
             }
             else
                 Debug.Log("enemy 충돌 감지-체력 감소 오류입니다.");

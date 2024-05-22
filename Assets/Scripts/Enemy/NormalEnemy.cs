@@ -8,33 +8,45 @@ public class NormalEnemy : MonoBehaviour
     public GameObject enemyBullet;
     public GameObject explosion;
 
-    private EnemyAction enemyAction;
-    private EnemyData enemy = new EnemyData();
-
-
+    private EnemyData enemy = new(1, 0.01f, 1);
     private bool isDead;
-
-    //private bool IsTrigger;
 
     void Start()
     {
-        Debug.Log(enemy);
-        InvokeRepeating("enemyAction.Attack(enemyBullet)", 0.1f, 2.0f);
+        InvokeRepeating("Attack", 0.1f, 2.0f);
     }
 
     void Update()
     {
         if (!GameManager.instance.isLive)
             return;
+        Move(enemy);
+    }
 
-        enemyAction.Move(enemy, normalEnemy);
+    private void Move(EnemyData enemy)
+    {
+        if (enemy.Hp > 0)
+        {
+            transform.position += Vector3.down * enemy.Speed;
+            if (transform.position.y < -4.0f)
+            {
+                Destroy(normalEnemy, 2.0f);
+            }
+        }
+    }
+
+    private void Attack()
+    {
+        float x = transform.position.x;
+        float y = transform.position.y;
+        Instantiate(enemyBullet, new Vector2(x, y), Quaternion.identity);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("PlayerBullet") && !isDead)
         {
-
+            Destroy(collision.gameObject);
             if (enemy.Hp == 1)
             {
                 Debug.Log("Get Score");
@@ -49,7 +61,6 @@ public class NormalEnemy : MonoBehaviour
             else if (enemy.Hp > 1)
             {
                 enemy.Hp -= 1;
-                Destroy(collision.gameObject);
             }
             else
                 Debug.Log("enemy 충돌 감지-체력 감소 오류입니다.");
